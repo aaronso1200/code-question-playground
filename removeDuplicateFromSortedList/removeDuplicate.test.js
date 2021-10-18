@@ -2,7 +2,7 @@ const removeDuplicate = require('./removeDuplicate')
 const ListNode = require('./removeDuplicate').ListNode
 
 /**
- * @param {Array} array
+ * @param {Array} input
  * @return {ListNode}
  */
 function constructListNodeFromArray(input) {

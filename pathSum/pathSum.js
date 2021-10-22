@@ -13,8 +13,17 @@ function TreeNode(val, left, right) {
  * @return {boolean}
  */
 var hasPathSum = function (root, targetSum) {
-
+    return traverse(root,targetSum,0)
 };
+
+var traverse = function(root,targetSum,curValue) {
+    if (!root) return false
+    if (!root.left && !root.right) {
+        curValue = curValue + root.val
+        return curValue === targetSum;
+    }
+    return traverse(root.left,targetSum,curValue + root.val) || traverse(root.right,targetSum,curValue + root.val)
+}
 
 
 module.exports = {

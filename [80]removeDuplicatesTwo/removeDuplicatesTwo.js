@@ -74,13 +74,33 @@ var removeDuplicates = function(nums) {
     if (nums.length <= 2) {
         return nums.length + 1
     }
-    let endPointer = 0
+    let resultPointer = 0
     let occurance = 0;
-    let comparePointer = 1;
-    while (comparePointer < nums.length -1) {
-
+    let comparePointer = 0;
+    let lastValue = nums[0];
+    while (comparePointer < nums.length) {
+        if (occurance >=2 && nums[comparePointer] === lastValue) {
+        } else {
+            if (lastValue === nums[comparePointer]) {
+                occurance++
+            } else {
+                lastValue = nums[comparePointer];
+                occurance=1;
+            }
+            swap(nums,resultPointer,comparePointer);
+            resultPointer++;
+        }
         comparePointer++
     }
-    return endPointer +1;
+    return resultPointer;
 };
+
+var swap =function (nums,resultPointer,comparePointer){
+   let temp = nums[resultPointer];
+   nums[resultPointer] = nums[comparePointer];
+   nums[comparePointer] = temp;
+}
+
 //leetcode submit region end(Prohibit modification and deletion)
+
+module.exports = {removeDuplicates}

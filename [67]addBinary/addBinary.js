@@ -26,30 +26,19 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
-    let mainArray;
-    let subArray;
+    let length = Math.max(a.length,b.length);
+    let mainArray = a.split('').map(v=> Number(v)).reverse();
+    let subArray = b.split('').map(v=> Number(v)).reverse();
     let resultArray =[];
 
-    if (a.length > b.length) {
-        mainArray = a.split('').map(v=> Number(v)).reverse();
-        subArray = b.split('').map(v=> Number(v)).reverse();
-    } else {
-        mainArray = b.split('').map(v=> Number(v)).reverse();
-        subArray = a.split('').map(v=> Number(v)).reverse();
-    }
+    fillArray(mainArray,length);
+    fillArray(subArray,length);
+
     let remain =0;
     for (let i =0; i<mainArray.length; i++) {
-        if (subArray[i] ===undefined) {
-            subArray[i] =0;
-        }
         let result = mainArray[i] + subArray[i] + remain;
-        if (result >1) {
-            remain =1;
-            resultArray.push(result %2)
-        } else {
-            remain =0
-            resultArray.push(result)
-        }
+        resultArray.push(result%2);
+        remain = result>1?1:0
     }
 
     if (remain>0) {
@@ -58,6 +47,12 @@ var addBinary = function(a, b) {
 
     return resultArray.reverse().join('')
 };
+
+var fillArray = function(array,length) {
+    for (let i=array.length;i<length;i++) {
+        array.push(0)
+    }
+}
 //leetcode submit region end(Prohibit modification and deletion)
 
 module.exports = {addBinary}

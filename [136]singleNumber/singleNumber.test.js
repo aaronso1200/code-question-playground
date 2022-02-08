@@ -1,4 +1,4 @@
-const {singleNumber} = require('./singleNumber')
+const {singleNumber} = require('./xorSolution')
 
 describe('test', function () {
     test('should found',() => {

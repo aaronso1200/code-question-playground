@@ -16,4 +16,7 @@ describe('Test combination Sum Function', () => {
     test('if distinct target can combine target should return result',() => {
         expect(combinationSum([2,3,6,7],7).sort()).toEqual([[2,2,3],[7]].sort())
     })
+    test('if distinct target can combine target should return results',() => {
+        expect(combinationSum([3,5,8],11).sort()).toEqual([[3,8],[3,3,5]].sort())
+    })
 })

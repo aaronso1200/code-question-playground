@@ -16,3 +16,7 @@ console.log("A2=A3?");
 console.log(a2===a3);
 
 console.log(a4===a2)
+
+//Will load the file
+let autoRun = require('./runWhenRequire')
+let onlyResolve = require.resolve('./runWhenRequire')
